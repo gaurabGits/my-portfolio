@@ -33,7 +33,7 @@ function Navbar({ theme, onToggleTheme }) {
         </a>
 
         <div className="flex items-center gap-2">
-          <ul className="flex items-center gap-0.5 rounded-full bg-slate-100 p-1 text-xs font-semibold text-slate-700 dark:bg-white/[0.04] dark:text-slate-300 sm:gap-1 sm:text-sm">
+          <ul className="flex items-center gap-0.5 rounded-full bg-slate-100 p-1 text-xs font-semibold text-slate-700 dark:bg-white/4 dark:text-slate-300 sm:gap-1 sm:text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
