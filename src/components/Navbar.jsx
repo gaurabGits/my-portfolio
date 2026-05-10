@@ -1,0 +1,64 @@
+import { FaReact } from "react-icons/fa";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+
+function Navbar({ theme, onToggleTheme }) {
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <header className="fixed left-0 right-0 top-4 z-50 px-3">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-3 rounded-full border border-slate-300 bg-white/90 px-3 py-3 shadow-2xl shadow-slate-300/40 backdrop-blur-xl transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/75 dark:shadow-black/20 sm:px-5">
+        <a
+          href="#home"
+          className="group flex items-center gap-3 text-sm font-bold tracking-wide text-slate-950 dark:text-white"
+          aria-label="Go to home"
+        >
+          <span className="react-logo-wrap relative grid h-12 w-12 place-items-center rounded-full">
+            <FaReact className="react-logo-spin absolute inset-0 h-full w-full text-cyan-600 drop-shadow-[0_0_16px_rgba(8,145,178,0.45)] dark:text-cyan-300 dark:drop-shadow-[0_0_16px_rgba(34,211,238,0.75)]" />
+            <span className="absolute h-7 w-7 rounded-full bg-white shadow-[0_0_20px_rgba(148,163,184,0.45)] dark:bg-slate-950 dark:shadow-[0_0_20px_rgba(2,6,23,0.9)]" />
+            <span className="relative grid h-6 w-6 place-items-center rounded-full bg-slate-950 text-sm font-black text-white transition duration-300 group-hover:scale-110 group-hover:bg-cyan-600 dark:bg-white dark:text-slate-950 dark:group-hover:bg-cyan-200">
+              G
+            </span>
+          </span>
+          <span className="hidden sm:block">
+            <span className="block leading-none">Gaurab</span>
+            <span className="mt-1 block font-mono text-[10px] font-semibold tracking-[0.22em] text-cyan-700 dark:text-cyan-300/80">
+              DEV
+            </span>
+          </span>
+        </a>
+
+        <div className="flex items-center gap-2">
+          <ul className="flex items-center gap-0.5 rounded-full bg-slate-100 p-1 text-xs font-semibold text-slate-700 dark:bg-white/[0.04] dark:text-slate-300 sm:gap-1 sm:text-sm">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="block rounded-full px-2.5 py-2 transition hover:bg-white hover:text-slate-950 dark:hover:bg-white/10 dark:hover:text-white sm:px-4"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="animated-icon-button grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-300 bg-white text-lg text-slate-800 shadow-sm hover:border-cyan-500 hover:text-cyan-700 dark:border-white/10 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-cyan-300 dark:hover:text-cyan-300"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+export default Navbar;
