@@ -129,7 +129,7 @@ function Contacts() {
 
   return (
     <section id="contact" className="scroll-mt-28 px-6 py-24 text-slate-950 transition-colors duration-300 dark:text-white">
-      <div className="mx-auto max-w-6xl rounded-3xl border border-slate-300 bg-white p-8 shadow-xl shadow-slate-300/60 dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none sm:p-10 lg:p-12">
+      <div className="mx-auto max-w-6xl rounded-3xl border border-slate-300 bg-white p-8 shadow-xl shadow-slate-300/60 dark:border-white/10 dark:bg-white/3 dark:shadow-none sm:p-10 lg:p-12">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="font-mono text-sm font-semibold text-cyan-700 dark:text-cyan-300">04 / Contact</p>
@@ -213,7 +213,7 @@ function Contacts() {
               <button
                 type="submit"
                 disabled={isSending}
-                className="contact-send-button inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full bg-[linear-gradient(90deg,#020617,#0891b2,#0f766e,#020617)] bg-[length:300%_100%] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/15 transition-all duration-300 animate-[contactButtonColor_6s_ease-in-out_infinite] hover:-translate-y-0.5 hover:shadow-cyan-500/30 disabled:cursor-not-allowed disabled:bg-slate-500 disabled:bg-none disabled:shadow-none disabled:animate-none dark:text-white dark:disabled:bg-slate-400 dark:disabled:text-slate-950"
+                className="animated-button rounded-full cursor-pointer px-7 py-3 font-semibold text-white dark:text-slate-950"
               >
                 {isSending ? (
                   <span className="inline-flex items-center gap-3">

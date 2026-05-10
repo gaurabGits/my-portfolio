@@ -166,9 +166,9 @@ body {
   background-size: 220% 220%;
   box-shadow: 0 18px 36px rgb(8 145 178 / 0.2);
   transition:
-    transform 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1050ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 680ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 680ms ease,
+    border-color 680ms ease-in-out,
     color 680ms ease,
     background-position 1200ms ease;
 }
@@ -181,13 +181,13 @@ body {
   background: linear-gradient(
     115deg,
     transparent 34%,
-    rgb(255 255 255 / 0.22) 45%,
-    rgb(255 255 255 / 0.58) 50%,
-    rgb(255 255 255 / 0.22) 55%,
+    rgb(255 255 255 / 0.12) 45%,
+    rgb(255 255 255 / 0.36) 50%,
+    rgb(255 255 255 / 0.12) 55%,
     transparent 66%
   );
   transform: translateX(-72%) rotate(8deg);
-  transition: transform 1150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 2450ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animated-button::after {
@@ -249,7 +249,7 @@ body {
 .dark .animated-button-soft {
   border-color: rgb(255 255 255 / 0.16);
   background: linear-gradient(135deg, rgb(255 255 255 / 0.08), rgb(8 145 178 / 0.16), rgb(16 185 129 / 0.12));
-  color: #ffffff;
+  color: #ffffff96;
   box-shadow: 0 16px 34px rgb(0 0 0 / 0.18);
 }
 

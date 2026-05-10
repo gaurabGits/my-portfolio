@@ -126,15 +126,15 @@ function Hero() {
         animate="show"
       >
         <motion.p
-          className="hero-status-badge mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-700/20 bg-white/70 px-4 py-2 font-mono text-xs font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.06] dark:text-cyan-200"
+          className="hero-status-badge mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-700/20 bg-white/70 mt-1 px-4 py-2 font-mono text-xs font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:bg-gray-700 dark:border-white/10 dark:bg-white/0.06 dark:text-white/80"
           variants={heroItemMotion}
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.8)]" aria-hidden="true" />
           <span>Open to opportunities</span>
           <span className="h-4 w-px bg-cyan-700/20 dark:bg-white/15" aria-hidden="true" />
-          <span className="hero-typewriter-word inline-flex justify-start text-emerald-700 dark:text-emerald-300">
+          <span className="hero-typewriter-word inline-flex justify-start text-emerald-700 dark:text-white/80">
             I'm a &lt; {typedText}
-            <span className="ml-1 animate-pulse text-cyan-700 dark:text-cyan-200">|</span>
+            <span className="ml-1 animate-pulse text-cyan-700 dark:text-cyan-200 ">|</span>
             /&gt;
           </span>
         </motion.p>
@@ -213,7 +213,7 @@ function Hero() {
 
         <motion.a
           href="#about"
-          className="hero-scroll-cue mx-auto mt-12 grid h-11 w-7 place-items-center rounded-full border border-slate-400/50 bg-white/30 backdrop-blur-sm transition-colors hover:border-cyan-600 dark:border-white/20 dark:bg-white/[0.04] dark:hover:border-cyan-300"
+          className="hero-scroll-cue mx-auto mt-12 grid h-11 w-7 place-items-center rounded-full border border-slate-400/50 bg-white/30 backdrop-blur-sm transition-colors hover:border-cyan-600 dark:border-white/20 dark:bg-white/[0.04 dark:hover:border-cyan-300"
           aria-label="Scroll to about section"
           variants={heroItemMotion}
         >

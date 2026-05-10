@@ -106,7 +106,7 @@ function GroupedColumn({ label, title, text, groups }) {
                 return (
                   <div
                     key={skill.name}
-                    className="flex min-h-11 items-center gap-2 rounded-lg border border-slate-300 bg-slate-100 px-3 py-2 dark:border-white/10 dark:bg-slate-950/[0.45]"
+                    className="flex min-h-11 items-center gap-2 rounded-lg border border-slate-300 bg-slate-100 px-3 py-2 dark:border-white/10 dark:bg-slate-950/45"
                   >
                     <Icon className={`shrink-0 text-xl ${skill.color}`} />
                     <span className="font-medium leading-tight text-slate-700 dark:text-slate-200">
