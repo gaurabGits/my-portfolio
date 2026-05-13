@@ -6,8 +6,37 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 0;
+  width: 100%;
+}
+
 body {
   @apply bg-slate-50 text-slate-950 antialiased dark:bg-slate-950 dark:text-white;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+span {
+  overflow-wrap: anywhere;
 }
 
 .footer-root:is(.dark *) {
@@ -77,8 +106,8 @@ body {
 
 .hero-outer-orb,
 .hero-ripple-size {
-  width: 30rem;
-  height: 30rem;
+  width: clamp(17rem, 82vw, 30rem);
+  height: clamp(17rem, 82vw, 30rem);
 }
 
 .hero-outer-orb {
@@ -93,8 +122,8 @@ body {
 
 .dark .hero-outer-orb,
 .dark .hero-ripple-size {
-  width: 32rem;
-  height: 32rem;
+  width: clamp(18rem, 86vw, 32rem);
+  height: clamp(18rem, 86vw, 32rem);
 }
 
 .dark .hero-outer-orb {
@@ -103,14 +132,14 @@ body {
 }
 
 .hero-inner-orb {
-  width: 22rem;
-  height: 22rem;
+  width: clamp(13rem, 64vw, 22rem);
+  height: clamp(13rem, 64vw, 22rem);
   box-shadow: inset 0 0 55px rgba(255, 255, 255, 0.5);
 }
 
 .hero-aura {
-  width: 36rem;
-  height: 36rem;
+  width: clamp(18rem, 96vw, 36rem);
+  height: clamp(18rem, 96vw, 36rem);
   background: conic-gradient(
     from 120deg,
     transparent,
@@ -121,12 +150,23 @@ body {
   );
 }
 
-.hero-typewriter-word {
-  min-width: 17ch;
+.hero-status-badge {
+  max-width: calc(100vw - 1.5rem);
+  font-size: clamp(0.55rem, 2.55vw, 0.75rem);
+  line-height: 1.35;
+  animation: hero-badge-float 7s ease-in-out infinite;
 }
 
-.hero-status-badge {
-  animation: hero-badge-float 7s ease-in-out infinite;
+.hero-typewriter-word {
+  width: 26ch;
+  min-width: 26ch;
+  max-width: 26ch;
+}
+
+@media (max-width: 30rem) {
+  .hero-grid-lines {
+    background-size: 44px 44px;
+  }
 }
 
 .hero-name-gradient {

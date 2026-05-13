@@ -88,7 +88,7 @@ const learningGroups = [
 
 function GroupedColumn({ label, title, text, groups }) {
   return (
-    <article className="rounded-lg border border-slate-300 bg-white p-5 shadow-xl shadow-slate-300/60 transition-colors duration-300 dark:border-white/10 dark:bg-slate-900/[0.55] dark:shadow-none sm:p-6">
+    <article className="min-w-0 rounded-lg border border-slate-300 bg-white p-4 shadow-xl shadow-slate-300/60 transition-colors duration-300 dark:border-white/10 dark:bg-slate-900/[0.55] dark:shadow-none sm:p-6">
       <p className="font-mono text-sm font-semibold text-cyan-700 dark:text-cyan-300">{label}</p>
       {title && <h3 className="mt-2 text-xl font-bold text-slate-950 dark:text-white">{title}</h3>}
       {text && <p className="mt-2 text-sm text-slate-700 dark:text-slate-400">{text}</p>}
@@ -99,17 +99,17 @@ function GroupedColumn({ label, title, text, groups }) {
             <h4 className="mb-2 font-mono text-sm font-semibold text-emerald-700 dark:text-emerald-300">
               {group.title}
             </h4>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 min-[420px]:grid-cols-2">
               {group.skills.map((skill) => {
                 const Icon = skill.icon;
 
                 return (
                   <div
                     key={skill.name}
-                    className="flex min-h-11 items-center gap-2 rounded-lg border border-slate-300 bg-slate-100 px-3 py-2 dark:border-white/10 dark:bg-slate-950/45"
+                    className="flex min-h-11 min-w-0 items-center gap-2 rounded-lg border border-slate-300 bg-slate-100 px-3 py-2 dark:border-white/10 dark:bg-slate-950/45"
                   >
                     <Icon className={`shrink-0 text-xl ${skill.color}`} />
-                    <span className="font-medium leading-tight text-slate-700 dark:text-slate-200">
+                    <span className="min-w-0 font-medium leading-tight text-slate-700 dark:text-slate-200">
                       {skill.name}
                     </span>
                   </div>
@@ -136,11 +136,11 @@ function LearningColumn() {
 
 function Skills() {
   return (
-    <section id="skills" className="scroll-mt-28 px-6 py-16 text-slate-950 transition-colors duration-300 dark:text-white">
+    <section id="skills" className="scroll-mt-24 px-4 py-16 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6 sm:scroll-mt-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 max-w-2xl">
           <p className="font-mono text-sm font-semibold text-cyan-700 dark:text-cyan-300">02 / Skills</p>
-          <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
             Skills and learning.
           </h2>
         </div>

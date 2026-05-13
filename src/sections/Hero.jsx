@@ -89,7 +89,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="hero-section group/hero relative isolate flex min-h-screen items-center overflow-hidden bg-slate-50 px-6 py-24 text-slate-950 transition-colors duration-300 dark:text-white"
+      className="hero-section group/hero relative isolate flex min-h-screen items-center overflow-hidden bg-slate-50 px-4 py-24 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6"
     >
       <div className="hero-scene-bg absolute inset-0 -z-20" />
       <div className="hero-grid-lines absolute inset-0 -z-20" aria-hidden="true" />
@@ -120,19 +120,19 @@ function Hero() {
       </div>
 
       <motion.div
-        className="mx-auto w-full max-w-4xl text-center"
+        className="mx-auto w-full max-w-4xl pt-8 text-center sm:pt-0"
         variants={containerMotion}
         initial="hidden"
         animate="show"
       >
         <motion.p
-          className="hero-status-badge mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-700/20 bg-white/70 mt-1 px-4 py-2 font-mono text-xs font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:bg-gray-700 dark:border-white/10 dark:bg-white/0.06 dark:text-white/80"
+          className="hero-status-badge mx-auto mb-6 mt-1 inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full border border-cyan-700/20 bg-white/70 px-2.5 py-2 font-mono font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.06] dark:text-white/80 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4"
           variants={heroItemMotion}
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.8)]" aria-hidden="true" />
-          <span>Open to opportunities</span>
+          <span className="shrink-0 whitespace-nowrap">Open to opportunities</span>
           <span className="h-4 w-px bg-cyan-700/20 dark:bg-white/15" aria-hidden="true" />
-          <span className="hero-typewriter-word inline-flex justify-start text-emerald-700 dark:text-white/80">
+          <span className="hero-typewriter-word inline-flex shrink-0 justify-start whitespace-nowrap text-emerald-700 dark:text-white/80">
             I'm a &lt; {typedText}
             <span className="ml-1 animate-pulse text-cyan-700 dark:text-cyan-200 ">|</span>
             /&gt;
@@ -140,7 +140,7 @@ function Hero() {
         </motion.p>
 
         <motion.h1
-          className="text-5xl font-black leading-tight sm:text-6xl lg:text-7xl"
+          className="text-4xl font-black leading-tight sm:text-6xl lg:text-7xl"
           variants={heroItemMotion}
         >
           <span className="hero-name-gradient mx-auto mt-2 block w-fit bg-clip-text text-transparent">
@@ -149,25 +149,25 @@ function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300"
+          className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300 sm:mt-7 sm:text-lg sm:leading-8"
           variants={heroItemMotion}
         >
           Building scalable MERN stack applications with modern UI/UX.
         </motion.p>
 
         <motion.div
-          className="mt-9 flex flex-wrap justify-center gap-3"
+          className="mt-8 flex flex-col justify-center gap-3 min-[380px]:flex-row sm:mt-9"
           variants={heroItemMotion}
         >
           <a
             href="#projects"
-            className="animated-button rounded-full px-7 py-3 font-semibold text-white dark:text-slate-950"
+            className="animated-button rounded-full px-6 py-3 text-center font-semibold text-white dark:text-slate-950 sm:px-7"
           >
             <span className="relative z-10">See projects</span>
           </a>
           <a
             href="#contact"
-            className="animated-button animated-button-soft rounded-full px-7 py-3 font-semibold"
+            className="animated-button animated-button-soft rounded-full px-6 py-3 text-center font-semibold sm:px-7"
           >
             <span className="relative z-10">Say hello</span>
           </a>
@@ -213,7 +213,7 @@ function Hero() {
 
         <motion.a
           href="#about"
-          className="hero-scroll-cue mx-auto mt-12 grid h-11 w-7 place-items-center rounded-full border border-slate-400/50 bg-white/30 backdrop-blur-sm transition-colors hover:border-cyan-600 dark:border-white/20 dark:bg-white/[0.04 dark:hover:border-cyan-300"
+          className="hero-scroll-cue mx-auto mt-10 grid h-11 w-7 place-items-center rounded-full border border-slate-400/50 bg-white/30 backdrop-blur-sm transition-colors hover:border-cyan-600 dark:border-white/20 dark:bg-white/[0.04] dark:hover:border-cyan-300 sm:mt-12"
           aria-label="Scroll to about section"
           variants={heroItemMotion}
         >

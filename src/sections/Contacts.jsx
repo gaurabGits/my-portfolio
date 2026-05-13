@@ -128,12 +128,12 @@ function Contacts() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-28 px-6 py-24 text-slate-950 transition-colors duration-300 dark:text-white">
-      <div className="mx-auto max-w-6xl rounded-3xl border border-slate-300 bg-white p-8 shadow-xl shadow-slate-300/60 dark:border-white/10 dark:bg-white/3 dark:shadow-none sm:p-10 lg:p-12">
+    <section id="contact" className="scroll-mt-24 px-4 py-16 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6 sm:py-24 sm:scroll-mt-28">
+      <div className="mx-auto max-w-6xl rounded-xl border border-slate-300 bg-white p-4 shadow-xl shadow-slate-300/60 dark:border-white/10 dark:bg-white/3 dark:shadow-none sm:rounded-3xl sm:p-10 lg:p-12">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
+          <div className="min-w-0">
             <p className="font-mono text-sm font-semibold text-cyan-700 dark:text-cyan-300">04 / Contact</p>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
               Let&apos;s build together.
             </h2>
             <p className="mt-6 max-w-xl leading-8 text-slate-700 dark:text-slate-300">
@@ -151,7 +151,7 @@ function Contacts() {
                 <span className="block text-sm font-medium text-slate-600 dark:text-slate-500">
                   {availability.label}
                 </span>
-                <span className="block font-medium text-slate-700 dark:text-slate-200">
+                <span className="block font-medium leading-6 text-slate-700 dark:text-slate-200">
                   {availability.value}
                 </span>
               </span>
@@ -160,10 +160,10 @@ function Contacts() {
 
           <form
             onSubmit={sendEmail}
-            className="rounded-2xl border border-slate-300 bg-slate-100 p-5 transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/40 sm:p-6"
+            className="min-w-0 rounded-xl border border-slate-300 bg-slate-100 p-4 transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/40 sm:rounded-2xl sm:p-6"
           >
             <div className="flex items-center justify-between gap-4">
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-950 dark:text-white">
+              <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-slate-950 dark:text-white sm:text-sm sm:tracking-[0.2em]">
                 Send Message
               </h3>
             </div>
@@ -213,7 +213,7 @@ function Contacts() {
               <button
                 type="submit"
                 disabled={isSending}
-                className="animated-button rounded-full cursor-pointer px-7 py-3 font-semibold text-white dark:text-slate-950"
+                className="animated-button cursor-pointer rounded-full px-7 py-3 text-center font-semibold text-white dark:text-slate-950"
               >
                 {isSending ? (
                   <span className="inline-flex items-center gap-3">
