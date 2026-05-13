@@ -126,7 +126,7 @@ function Hero() {
         animate="show"
       >
         <motion.p
-          className="hero-status-badge mx-auto mb-6 mt-1 inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full border border-cyan-700/20 bg-white/70 px-2.5 py-2 font-mono font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:border-white/10 dark:bg-white/0.06 dark:text-white/80 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4"
+          className="hero-status-badge mx-auto mb-6 mt-1 inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-full border border-cyan-700/20 bg-transparent px-2.5 py-2 font-mono font-semibold text-cyan-800 shadow-sm shadow-cyan-900/5 backdrop-blur-md dark:border-white/10 dark:bg-white/0.06 dark:text-white/80 min-[380px]:gap-2 min-[380px]:px-3 sm:px-4"
           variants={heroItemMotion}
         >
           <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.8)]" aria-hidden="true" />
@@ -152,7 +152,7 @@ function Hero() {
           className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300 sm:mt-7 sm:text-lg sm:leading-8"
           variants={heroItemMotion}
         >
-          Building scalable MERN stack applications with modern UI/UX.
+          Building digital experiences that make a difference. Always excited to take on new challenges and create innovative solutions.
         </motion.p>
 
         <motion.div

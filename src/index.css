@@ -104,6 +104,12 @@ span {
   opacity: 0.7;
 }
 
+@media (max-width: 40rem) {
+  .dark .hero-light-sweep {
+    display: none;
+  }
+}
+
 .hero-outer-orb,
 .hero-ripple-size {
   width: clamp(17rem, 82vw, 30rem);
