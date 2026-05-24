@@ -71,8 +71,9 @@ function About() {
             I&apos;m a web developer with a passion for crafting engaging and efficient web applications. With a strong foundation in both frontend and backend technologies, I enjoy creating seamless user experiences and solving complex problems. I thrive in collaborative environments and am always eager to learn new skills and stay updated with the latest industry trends. Open to opportunities, on-site work, and remote-first collaboration.
           </p>
           <a
-            href="/resume.pdf"
-            download
+            href="https://drive.google.com/file/d/1SDPKJBNcqS9jTguh3-AyWo_ULplN7SDb/view"
+            target="_black"
+            rel="noopener noreferrer"
             className="animated-button mt-8 inline-flex rounded-full px-7 py-3 font-semibold text-white dark:text-slate-950"
           >
             <span className="relative z-10">My Resume</span>
