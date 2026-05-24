@@ -67,7 +67,7 @@ function About() {
           <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
             About Me,
           </h2>
-          <p className="mt-5 text-left leading-7 text-slate-700 dark:text-slate-300 sm:mt-6 sm:leading-8 md:text-justify">
+          <p className="mt-5 leading-7 text-slate-700 text-justify dark:text-slate-300 sm:mt-6 sm:leading-8">
             I&apos;m a web developer with a passion for crafting engaging and efficient web applications. With a strong foundation in both frontend and backend technologies, I enjoy creating seamless user experiences and solving complex problems. I thrive in collaborative environments and am always eager to learn new skills and stay updated with the latest industry trends. Open to opportunities, on-site work, and remote-first collaboration.
           </p>
           <a
