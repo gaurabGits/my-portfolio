@@ -39,6 +39,11 @@ span {
   overflow-wrap: anywhere;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .footer-root:is(.dark *) {
   background-color: #070b12;
 }

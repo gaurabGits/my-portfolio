@@ -93,7 +93,7 @@ function Footer() {
 
           <a
             href="#home"
-            className="inline-flex w-fit items-center gap-1 font-semibold text-slate-700 transition hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-300"
+            className="inline-flex w-fit self-end items-center gap-1 font-semibold text-slate-700 transition hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-300 sm:self-auto"
           >
             Back to top
             <MdKeyboardArrowUp className="text-xl" aria-hidden="true" />
