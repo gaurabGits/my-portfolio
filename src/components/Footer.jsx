@@ -38,12 +38,12 @@ function Footer() {
             </p>
           </div>
 
-          <div className="grid min-w-0 gap-8 sm:grid-cols-2 sm:gap-10">
+          <div className="grid min-w-0 gap-12 sm:grid-cols-2 sm:gap-16">
             <div className="min-w-0">
               <h2 className="footer-section-title text-sm font-bold uppercase text-slate-950 dark:text-white">
                 Get in Touch
               </h2>
-              <div className="mt-4 space-y-3 text-sm">
+              <div className="mt-4 space-y-4 text-sm">
                 <a
                   href="mailto:gaurabbishwakarma22@gmail.com"
                   className="flex min-w-0 items-center gap-3 transition hover:text-cyan-700 dark:hover:text-cyan-300"
@@ -51,7 +51,7 @@ function Footer() {
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-lg text-cyan-700 shadow-sm dark:bg-slate-950/70 dark:text-cyan-300">
                     <MdEmail />
                   </span>
-                  <span className="min-w-0 break-all">gaurabbishwakarma22@gmail.com</span>
+                  <span className="whitespace-nowrap">gaurabbishwakarma22@gmail.com</span>
                 </a>
                 <p className="flex items-center gap-3">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-lg text-emerald-700 shadow-sm dark:bg-slate-950/70 dark:text-emerald-300">
