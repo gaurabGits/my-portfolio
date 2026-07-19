@@ -104,26 +104,25 @@ function StackPanel({ eyebrow, title, text, groups, accent, mirror = false }) {
   const a = ACCENTS[accent];
 
   return (
-    <div className={`min-w-0 ${mirror ? "text-right" : ""}`}>
-      <div className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 ${mirror ? "flex-row-reverse " : ""}`}>
-        <div>
-          <p className={`font-mono text-sm font-semiboldfloat-end ${a.text}`}>{eyebrow}</p>
-          <h3 className="mt-1 text-2xl font-bold text-slate-950 dark:text-white sm:text-3xl">{title}</h3>
-        </div>
+    <div className="min-w-0">
+      {/* Eyebrow + title + text share one right edge when mirrored */}
+      <div className={`flex flex-col ${mirror ? "items-end" : "items-start"}`}>
+        <p className={`font-mono text-sm font-semibold ${a.text} ${mirror ? "text-right" : ""}`}>{eyebrow}</p>
+        <h3 className="mt-1 text-2xl font-bold text-slate-950 dark:text-white sm:text-3xl">{title}</h3>
+        <p
+          className={`mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 max-w-xl ${
+            mirror ? "text-right" : ""
+          }`}
+        >
+          {text}
+        </p>
       </div>
-      <p
-        className={`mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 max-w-xl ${
-          mirror ? "ml-auto text-right " : ""
-        }`}
-      >
-        {text}
-      </p>
 
       {/* Spine diagram */}
-      <div className={`relative mt-8 ${mirror ? "pr-7 sm:pr-9" : "pl-7 sm:pl-9"}`}>
+      <div className={`relative mt-8 ${mirror ? "pr-8 sm:pr-10" : "pl-7 sm:pl-9"}`}>
         <div
           className={`absolute top-1 bottom-1 w-px bg-gradient-to-b ${a.line} to-transparent ${
-            mirror ? "right-[5px] sm:right-[7px]" : "left-[5px] sm:left-[7px]"
+            mirror ? "right-[6px] sm:right-[8px]" : "left-[5px] sm:left-[7px]"
           }`}
         />
 
@@ -132,10 +131,14 @@ function StackPanel({ eyebrow, title, text, groups, accent, mirror = false }) {
             <div key={group.title} className="relative">
               <span
                 className={`absolute top-1 h-2.5 w-2.5 rounded-full ${a.dot} ring-4 ring-white dark:ring-slate-900 ${
-                  mirror ? "-right-7 translate-x-1/2 sm:-right-9" : "-left-7 -translate-x-1/2 sm:-left-9"
+                  mirror ? "-right-8 translate-x-1/2 sm:-right-10" : "-left-7 -translate-x-1/2 sm:-left-9"
                 }`}
               />
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              <h4
+                className={`text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 ${
+                  mirror ? "text-right" : ""
+                }`}
+              >
                 {group.title}
               </h4>
               <div className={`mt-2.5 flex flex-wrap gap-2 ${mirror ? "justify-end" : ""}`}>

@@ -92,8 +92,6 @@ function Hero() {
       className="hero-section group/hero relative isolate flex min-h-screen items-center overflow-hidden bg-slate-50 px-4 py-24 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6"
     >
       <div className="hero-scene-bg absolute inset-0 -z-20" />
-      <div className="hero-grid-lines absolute inset-0 -z-20" aria-hidden="true" />
-      <div className="hero-light-sweep absolute inset-0 -z-10" aria-hidden="true" />
       <div className="hero-soft-light absolute inset-0 -z-10 opacity-60 transition-opacity duration-700 group-hover/hero:opacity-100" />
       <div
         className="hero-outer-orb absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-700/30 dark:border-white/10"
