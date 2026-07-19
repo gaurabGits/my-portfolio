@@ -6,7 +6,7 @@ function ProjectCard({ project, index }) {
   const features = project.features ?? [];
 
   return (
-    <article className="group flex h-full min-w-0 flex-col rounded-xl border border-slate-300 bg-white p-4 shadow-lg shadow-slate-300/40 transition  hover:border-cyan-600/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-none dark:hover:border-cyan-300/40 dark:hover:bg-slate-900/80 sm:rounded-2xl sm:p-5">
+    <article className="group flex h-full min-w-0 flex-col rounded-xl border border-slate-300 bg-white p-4 shadow-lg shadow-slate-300/40 transition hover:border-cyan-600/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-none dark:hover:border-cyan-300/40 dark:hover:bg-slate-900/80 sm:rounded-2xl sm:p-5">
       <div className="flex items-start justify-between gap-3">
         <p className="font-mono text-xs font-semibold text-slate-500">
           {String(index + 1).padStart(2, "0")}
@@ -21,7 +21,7 @@ function ProjectCard({ project, index }) {
       <h3 className="mt-5 text-lg font-bold text-slate-950 dark:text-white sm:mt-6 sm:text-xl">
         {project.title}
       </h3>
-      <p className="mt-3 leading-6 text-slate-700 dark:text-slate-400 text-sm">
+      <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-400">
         {project.description}
       </p>
 
@@ -36,7 +36,7 @@ function ProjectCard({ project, index }) {
         </ul>
       )}
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-8 flex flex-wrap gap-2">
         {techStack.map((tech) => (
           <span
             key={tech}
@@ -47,13 +47,13 @@ function ProjectCard({ project, index }) {
         ))}
       </div>
 
-      <div className="mt-auto flex flex-wrap gap-2 pt-5">
+      <div className="mt-10 mb-7 flex w-full gap-2">
         {project.github && (
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center hover:-translate-y-0.5 gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800 transition hover:border-cyan-600 hover:text-cyan-700 dark:border-white/10 dark:text-cyan-200 dark:hover:border-cyan-300 dark:hover:text-cyan-300"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800 transition hover:transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:border-cyan-600 hover:text-cyan-700 dark:border-white/10 dark:text-cyan-200 dark:hover:border-cyan-300 dark:hover:text-cyan-300"
           >
             <FaGithub aria-hidden="true" />
             GitHub
@@ -64,7 +64,7 @@ function ProjectCard({ project, index }) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 hover:-translate-y-0.5 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
+            className=" inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
           >
             <HiOutlineExternalLink aria-hidden="true" />
             Demo
@@ -72,11 +72,12 @@ function ProjectCard({ project, index }) {
         )}
         {project.docs && (
           <button
+            type="button"
             onClick={(e) => {
               e.preventDefault();
               alert("We are working on it. Please keep touch with us.");
             }}
-            className="inline-flex items-center gap-2 hover:-translate-y-0.5 cursor-pointer rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
+            className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
           >
             <HiOutlineExternalLink aria-hidden="true" />
             Documentation
@@ -88,3 +89,4 @@ function ProjectCard({ project, index }) {
 }
 
 export default ProjectCard;
+
