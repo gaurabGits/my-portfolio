@@ -65,7 +65,7 @@ function About() {
             I&apos;m a web developer with a passion for crafting engaging and efficient web applications. With a strong foundation in both frontend and backend technologies, I enjoy creating seamless user experiences and solving complex problems. I thrive in collaborative environments and am always eager to learn new skills and stay updated with the latest industry trends. Open to opportunities, on-site work, and remote-first collaboration.
           </p>
           <a
-            href="https://drive.google.com/file/d/1YHpcg9F_TlWt9u_Moh4YsLZHAUsDWG2f/view?usp=sharing"
+            href="https://drive.google.com/file/d/1iJHk_h6K2cOF9WeDlukJU-Ec378heNpe/view?usp=sharing"
             target="_black"
             rel="noopener noreferrer"
             className="animated-button mt-8 inline-flex rounded-full px-7 py-3 font-semibold text-white dark:text-slate-950"
