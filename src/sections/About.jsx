@@ -57,7 +57,7 @@ function About() {
                         <div className="absolute  rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-2xl" />
                         <div className="relative overflow-hidden rounded-2xl ring-1 ring-slate-200/50 shadow-xl">
                             <img
-                                src="../../public/About Pic/Pic 2.jpeg"
+                                src="../../../About Pic/Pic 2.jpeg"
                                 alt="Gaurab — Software Developer"
                                 className="w-full object-cover object-top"
                             />
