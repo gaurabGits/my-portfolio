@@ -1,5 +1,13 @@
-import { FaGithub, FaLinkedin, FaSquareTwitter } from "react-icons/fa6";
-import { MdEmail, MdKeyboardArrowUp, MdLocationOn } from "react-icons/md";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaSquareTwitter,
+} from "react-icons/fa6";
+import {
+  MdEmail,
+  MdKeyboardArrowUp,
+  MdLocationOn,
+} from "react-icons/md";
 
 const socialLinks = [
   {
@@ -13,90 +21,133 @@ const socialLinks = [
     icon: FaLinkedin,
   },
   {
-    label: "X (Twitter)",
+    label: "X",
     href: "https://twitter.com/gaurab-lohar",
     icon: FaSquareTwitter,
   },
 ];
 
+const quickLinks = [
+  { label: "Home", href: "#home" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer-root border-t border-slate-200 bg-white px-4 py-10 text-slate-600 transition-colors duration-300 dark:border-white/10 dark:text-slate-300 sm:px-6">
+    <footer className="bg-white px-4 pb-8 pt-20 text-slate-600 sm:px-6 sm:pt-28">
       <div className="mx-auto max-w-6xl">
-        <div className="footer-panel grid gap-8 rounded-xl border border-slate-200 bg-slate-50/80 p-4 shadow-sm shadow-slate-200/70 transition-colors duration-300 dark:border-white/10 dark:shadow-black/20 sm:rounded-3xl sm:p-8 lg:items-start">
-          <div className="min-w-0 max-w-md">
+        {/* ================= TOP CONTENT ================= */}
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-10">
+          {/* Brand */}
+          <div className="max-w-md">
             <a
               href="#home"
-              className="text-xl font-black tracking-tight text-slate-950 transition hover:text-cyan-700 dark:text-white dark:hover:text-cyan-300"
-              aria-label="Go to home"
+              aria-label="Go to homepage"
+              className="inline-block text-xl font-black tracking-tight text-slate-950 transition-colors hover:text-cyan-600"
             >
               Gaurab Bishwarkarma
             </a>
-            <p className="mt-3 text-sm leading-6">
-              A developer passionate about crafting efficient and scalable products.<br className="hidden sm:block" />
-              I love to explore new technologies and continuously improve my skills.
+
+            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-500">
+              Developer focused on building thoughtful, reliable web
+              experiences with modern technologies.
             </p>
+
+            <a
+              href="mailto:gaurabbishwakarma22@gmail.com"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-slate-700 transition-colors hover:text-cyan-600"
+            >
+              <MdEmail className="text-lg text-slate-400" />
+              gaurabbishwakarma22@gmail.com
+            </a>
           </div>
 
-          <div className="grid min-w-0 gap-12 sm:grid-cols-2 sm:gap-16">
-            <div className="min-w-0">
-              <h2 className="footer-section-title text-sm font-bold uppercase text-slate-950 dark:text-white">
-                Get in Touch
-              </h2>
-              <div className="mt-4 space-y-4 text-sm">
-                <a
-                  href="mailto:gaurabbishwakarma22@gmail.com"
-                  className="flex min-w-0 items-center gap-3 transition hover:text-cyan-700 dark:hover:text-cyan-300"
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-lg text-cyan-700 shadow-sm dark:bg-slate-950/70 dark:text-cyan-300">
-                    <MdEmail />
-                  </span>
-                  <span className="whitespace-nowrap">gaurabbishwakarma22@gmail.com</span>
-                </a>
-                <p className="flex items-center gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-lg text-emerald-700 shadow-sm dark:bg-slate-950/70 dark:text-emerald-300">
-                    <MdLocationOn />
-                  </span>
-                  <span>Kathmandu, Nepal</span>
-                </p>
-              </div>
-            </div>
+          {/* Navigation */}
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              Navigation
+            </h2>
 
-            <div>
-              <h2 className="footer-section-title text-sm font-bold uppercase text-slate-950 dark:text-white">
-                Connect
-              </h2>
-              <div className="mt-4 flex flex-col gap-3 text-sm font-semibold">
-                {socialLinks.map(({ label, href, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex w-fit items-center gap-3 transition hover:text-cyan-700 dark:hover:text-cyan-300"
-                  >
-                    <span className="animated-icon-button grid h-9 w-9 place-items-center rounded-full border border-slate-300 bg-white text-lg text-slate-800 shadow-sm group-hover:border-cyan-500 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-200">
-                      <Icon />
-                    </span>
-                    <span>{label}</span>
-                  </a>
-                ))}
+            <nav className="mt-5 flex flex-col gap-3">
+              {quickLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="w-fit text-sm font-medium text-slate-600 transition-colors hover:text-slate-950"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              Connect
+            </h2>
+
+            <div className="mt-5 flex flex-col gap-3">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex w-fit items-center gap-2.5 text-sm font-medium text-slate-600 transition-colors hover:text-slate-950"
+                >
+                  <Icon className="text-base text-slate-400 transition-colors group-hover:text-cyan-600" />
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Location */}
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+              Based in
+            </h2>
+
+            <div className="mt-5 flex items-start gap-2.5 text-sm text-slate-600">
+              <MdLocationOn className="mt-0.5 shrink-0 text-lg text-slate-400" />
+
+              <div>
+                <p className="font-medium text-slate-700">
+                  Kathmandu, Nepal
+                </p>
+
+                <p className="mt-1 text-xs text-slate-400">
+                  Available for remote work
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between">
+        {/* ================= DIVIDER ================= */}
+        <div className="mt-16 h-px bg-slate-200/80" />
+
+        {/* ================= BOTTOM ================= */}
+        <div className="flex flex-col gap-4 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Gaurab Bishwarkarma
+            © {currentYear} Gaurab Bishwarkarma. All rights reserved.
           </p>
 
           <a
             href="#home"
-            className="inline-flex w-fit self-end items-center gap-1 font-semibold text-slate-700 transition hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-300 sm:self-auto"
+            className="group inline-flex w-fit items-center gap-1.5 font-medium text-slate-500 transition-colors hover:text-slate-950"
           >
             Back to top
-            <MdKeyboardArrowUp className="text-xl" aria-hidden="true" />
+
+            <MdKeyboardArrowUp
+              className="text-lg transition-transform duration-200 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
           </a>
         </div>
       </div>

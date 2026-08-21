@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaCss3Alt,
   FaDatabase,
@@ -7,12 +8,9 @@ import {
   FaPython,
   FaReact,
 } from "react-icons/fa6";
-
 import { MdApi } from "react-icons/md";
-
 import {
   SiJavascript,
-  SiNextdotjs,
   SiPostman,
   SiSocketdotio,
   SiTailwindcss,
@@ -20,181 +18,262 @@ import {
   SiWebrtc,
 } from "react-icons/si";
 
-
 const knownGroups = [
   {
     title: "Frontend",
     skills: [
-      { name: "HTML", icon: FaHtml5, color: "text-orange-600 dark:text-orange-300" },
-      { name: "CSS", icon: FaCss3Alt, color: "text-blue-600 dark:text-blue-300" },
-      { name: "JavaScript", icon: SiJavascript, color: "text-amber-600 dark:text-amber-300" },
-      { name: "React", icon: FaReact, color: "text-cyan-600 dark:text-cyan-300" },
-      { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-600 dark:text-sky-300" },
+      { name: "HTML", icon: FaHtml5, color: "text-orange-600" },
+      { name: "CSS", icon: FaCss3Alt, color: "text-blue-600" },
+      { name: "JavaScript", icon: SiJavascript, color: "text-amber-500" },
+      { name: "React", icon: FaReact, color: "text-cyan-500" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-500" },
     ],
   },
   {
     title: "Backend",
     skills: [
-      { name: "Node.js", icon: FaNodeJs, color: "text-emerald-600 dark:text-emerald-400" },
-      { name: "Express.js", icon: FaNodeJs, color: "text-emerald-600 dark:text-emerald-400" },
-      { name: "REST API", icon: MdApi, color: "text-cyan-600 dark:text-cyan-300" },
+      { name: "Node.js", icon: FaNodeJs, color: "text-emerald-600" },
+      { name: "Express.js", icon: FaNodeJs, color: "text-emerald-600" },
+      { name: "REST API", icon: MdApi, color: "text-cyan-600" },
     ],
   },
   {
-    title: "Realtime & Communication",
+    title: "Realtime",
     skills: [
-      { name: "Socket.IO", icon: SiSocketdotio, color: "text-slate-600 dark:text-slate-200" },
-      { name: "WebRTC", icon: SiWebrtc, color: "text-orange-600 dark:text-orange-300" },
+      { name: "Socket.IO", icon: SiSocketdotio, color: "text-slate-700" },
+      { name: "WebRTC", icon: SiWebrtc, color: "text-orange-500" },
     ],
   },
   {
     title: "Database",
     skills: [
-      { name: "MongoDB", icon: FaDatabase, color: "text-green-600 dark:text-green-300" },
-      { name: "MySQL", icon: FaDatabase, color: "text-cyan-600 dark:text-cyan-300" },
+      { name: "MongoDB", icon: FaDatabase, color: "text-green-600" },
+      { name: "MySQL", icon: FaDatabase, color: "text-cyan-600" },
     ],
   },
   {
-    title: "Tools & Workflow",
+    title: "Tools",
     skills: [
-      { name: "Git", icon: FaGitAlt, color: "text-orange-600 dark:text-orange-300" },
-      { name: "Postman", icon: SiPostman, color: "text-orange-600 dark:text-orange-300" },
+      { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
+      { name: "Postman", icon: SiPostman, color: "text-orange-500" },
     ],
   },
 ];
 
 const learningGroups = [
   {
-    title: "Frameworks & Libraries",
+    title: "Languages",
     skills: [
-      { name: "TypeScript", icon: SiTypescript, color: "text-blue-600 dark:text-blue-400" },
-      { name: "Next.js", icon: SiNextdotjs, color: "text-slate-700 dark:text-slate-100" },
-      { name: "Django", icon: FaPython, color: "text-emerald-600 dark:text-emerald-400" },
+      { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
+      { name: "Python", icon: FaPython, color: "text-yellow-600" },
     ],
   },
   {
-    title: "Languages",
-    skills: [{ name: "Python", icon: FaPython, color: "text-yellow-600 dark:text-yellow-300" }],
+    title: "Backend & Frameworks",
+    skills: [
+      { name: "Django", icon: FaPython, color: "text-emerald-600" },
+    ],
   },
   {
     title: "Database",
-    skills: [{ name: "PostgreSQL", icon: FaDatabase, color: "text-cyan-600 dark:text-cyan-300" }],
+    skills: [
+      { name: "PostgreSQL", icon: FaDatabase, color: "text-cyan-600" },
+    ],
   },
 ];
 
-
-const ACCENTS = {
-  blue: {
-    dot: "bg-[#0E6EFF] dark:bg-[#5b9bff]",
-    ring: "ring-[#0E6EFF]/25 dark:ring-[#5b9bff]/25",
-    text: "text-[#0E6EFF] dark:text-[#5b9bff]",
-    line: "from-[#0E6EFF]/60 dark:from-[#5b9bff]/60",
-    hoverBorder: "hover:border-[#0E6EFF]/50 dark:hover:border-[#5b9bff]/50",
+const panelMotion = {
+  hidden: {
+    opacity: 0,
+    y: 24,
   },
-  indigo: {
-    dot: "bg-[#4f46e5] dark:bg-[#8b85f0]",
-    ring: "ring-[#4f46e5]/25 dark:ring-[#8b85f0]/25",
-    text: "text-[#4f46e5] dark:text-[#8b85f0]",
-    line: "from-[#4f46e5]/60 dark:from-[#8b85f0]/60",
-    hoverBorder: "hover:border-[#4f46e5]/50 dark:hover:border-[#8b85f0]/50",
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1],
+    },
   },
 };
 
-function StackPanel({ eyebrow, title, text, groups, accent, mirror = false }) {
-  const a = ACCENTS[accent];
+const groupMotion = {
+  hidden: {
+    opacity: 0,
+    y: 12,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+function StackPanel({
+  eyebrow,
+  title,
+  text,
+  groups,
+  accent = "cyan",
+  mirror = false,
+}) {
+  const isCyan = accent === "cyan";
+
+  const accentText = isCyan
+    ? "text-cyan-600 dark:text-cyan-400"
+    : "text-indigo-600 dark:text-indigo-400";
+
+  const accentDot = isCyan ? "bg-cyan-500" : "bg-indigo-500";
+
+  const accentHover = isCyan
+    ? "group-hover:border-cyan-400/40 group-hover:bg-cyan-50/40 dark:group-hover:border-cyan-400/30 dark:group-hover:bg-cyan-950/20"
+    : "group-hover:border-indigo-400/40 group-hover:bg-indigo-50/40 dark:group-hover:border-indigo-400/30 dark:group-hover:bg-indigo-950/20";
 
   return (
-    <div className="min-w-0">
-      {/* Eyebrow + title + text share one right edge when mirrored */}
-      <div className={`flex flex-col ${mirror ? "items-end" : "items-start"}`}>
-        <p className={`font-mono text-sm font-semibold ${a.text} ${mirror ? "text-right" : ""}`}>{eyebrow}</p>
-        <h3 className="mt-1 text-2xl font-bold text-slate-950 dark:text-white sm:text-3xl">{title}</h3>
-        <p
-          className={`mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 max-w-xl ${
-            mirror ? "text-right" : ""
-          }`}
-        >
+    <motion.div variants={panelMotion} className="relative">
+      {/* Header */}
+      <div className={`flex flex-col ${mirror ? "items-end text-right" : "items-start"}`}>
+        <div className="flex items-center gap-3">
+          {!mirror && <span className={`h-1.5 w-1.5 rounded-full ${accentDot}`} />}
+          <p className={`font-mono text-xs font-semibold uppercase tracking-[0.18em] ${accentText}`}>
+            {eyebrow}
+          </p>
+          {mirror && <span className={`h-1.5 w-1.5 rounded-full ${accentDot}`} />}
+        </div>
+
+        <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
+          {title}
+        </h3>
+
+        <p className={`mt-3 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-400 ${mirror ? "text-right" : ""}`}>
           {text}
         </p>
       </div>
 
-      {/* Spine diagram */}
-      <div className={`relative mt-8 ${mirror ? "pr-8 sm:pr-10" : "pl-7 sm:pl-9"}`}>
-        <div
-          className={`absolute top-1 bottom-1 w-px bg-gradient-to-b ${a.line} to-transparent ${
-            mirror ? "right-[6px] sm:right-[8px]" : "left-[5px] sm:left-[7px]"
-          }`}
-        />
+      {/* Skills */}
+      <div className={`relative mt-9 ${mirror ? "pr-7 sm:pr-10" : "pl-7 sm:pl-10"}`}>
+        {/* Vertical spine */}
+        <div className={`absolute top-1 bottom-1 w-px bg-gradient-to-b ${isCyan ? "from-cyan-500/60" : "from-indigo-500/60"} to-transparent ${mirror ? "right-[4px] sm:right-[6px]" : "left-[4px] sm:left-[6px]"}`} />
 
-        <div className="space-y-7">
+        <motion.div
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.08,
+              },
+            },
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="space-y-7"
+        >
           {groups.map((group) => (
-            <div key={group.title} className="relative">
-              <span
-                className={`absolute top-1 h-2.5 w-2.5 rounded-full ${a.dot} ring-4 ring-white dark:ring-slate-900 ${
-                  mirror ? "-right-8 translate-x-1/2 sm:-right-10" : "-left-7 -translate-x-1/2 sm:-left-9"
-                }`}
-              />
-              <h4
-                className={`text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 ${
-                  mirror ? "text-right" : ""
-                }`}
-              >
+            <motion.div key={group.title} variants={groupMotion} className="relative">
+              {/* Spine node */}
+              <span className={`absolute top-1.5 h-2.5 w-2.5 rounded-full ${accentDot} ring-4 ring-white dark:ring-slate-950 ${mirror ? "-right-7 translate-x-1/2 sm:-right-10" : "-left-7 -translate-x-1/2 sm:-left-10"}`} />
+
+              <h4 className={`text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 ${mirror ? "text-right" : ""}`}>
                 {group.title}
               </h4>
-              <div className={`mt-2.5 flex flex-wrap gap-2 ${mirror ? "justify-end" : ""}`}>
+
+              <div className={`mt-3 flex flex-wrap gap-2 ${mirror ? "justify-end" : ""}`}>
                 {group.skills.map((skill) => {
                   const Icon = skill.icon;
-
                   return (
                     <div
                       key={skill.name}
-                      className={`flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-slate-700 transition-colors duration-200 dark:border-white/10 dark:bg-slate-900/40 dark:text-slate-200 ${a.hoverBorder} ${
-                        mirror ? "flex-row-reverse" : ""
-                      }`}
+                      className={`group/skill flex items-center gap-2 rounded-lg border border-slate-200/70 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 ${accentHover}`}
                     >
-                      <Icon className={`shrink-0 text-base ${skill.color}`} />
-                      <span className="font-medium leading-none">{skill.name}</span>
+                      <Icon className={`text-base ${skill.color} transition-transform duration-200 group-hover/skill:scale-110`} />
+                      <span>{skill.name}</span>
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 px-4 py-16 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6 sm:scroll-mt-28">
+    <section
+      id="skills"
+      className="scroll-mt-24 px-4 py-20 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6 sm:py-28"
+    >
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12 max-w-2xl">
-          <p className="font-mono text-sm font-semibold text-cyan-700 dark:text-cyan-300">02 / Skills</p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
-            Skills and learning.
-          </h2>
-        </div>
+        {/* ================= HEADER ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="mb-14 max-w-2xl"
+        >
+          <div className="mb-5 flex items-center gap-3">
+            <span className="h-px w-8 bg-cyan-500" />
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">
+              02 / Skills
+            </p>
+          </div>
 
-        <div className="space-y-16">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Tools I use.
+            <span className="text-slate-400 dark:text-slate-600">
+              {" "}
+              Things I'm learning.
+            </span>
+          </h2>
+
+          <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base">
+            A practical collection of technologies I use to build projects,
+            along with the tools and concepts I'm currently exploring.
+          </p>
+        </motion.div>
+
+        {/* ================= PANELS ================= */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.08 }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.18,
+              },
+            },
+          }}
+          className="space-y-16 sm:space-y-20"
+        >
           <StackPanel
-            eyebrow="Knowledge about"
-            title="What I use"
-            text="Tools I reach for by default to build clean, production-ready web projects."
+            eyebrow="Currently using"
+            title="My core stack"
+            text="Technologies I regularly use when building full-stack applications and experimenting with real-world projects."
             groups={knownGroups}
-            accent="blue"
+            accent="cyan"
           />
 
           <StackPanel
-            eyebrow="Learning right now"
-            title="What I'm learning"
-            text="Skills and tools I'm currently exploring and folding into new projects."
+            eyebrow="Currently learning"
+            title="Expanding my stack"
+            text="Technologies I'm actively exploring to strengthen my backend, database, and application development skills."
             groups={learningGroups}
             accent="indigo"
             mirror
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

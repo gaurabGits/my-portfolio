@@ -1,89 +1,141 @@
 import { FaGithub } from "react-icons/fa6";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   const techStack = project.tech ?? project.techStack ?? project.tags ?? [];
-  const features = project.features ?? [];
+  const image = project.image ?? project.projectImg ?? project.img;
+  const description = project.description || "";
+
+  // Helper to get status-specific styles
+  const getStatusStyles = (status) => {
+    const s = status?.toLowerCase();
+    if (s === "completed") {
+      return {
+        badge: "bg-emerald-500/20 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-300",
+        dot: "bg-emerald-400",
+        ping: "bg-emerald-400",
+      };
+    }
+    if (s === "shutdown" || s === "archived") {
+      return {
+        badge: "bg-red-500/20 text-red-700 dark:bg-red-500/30 dark:text-red-300",
+        dot: "bg-red-400",
+        ping: "bg-red-400",
+      };
+    }
+    if (s === "in progress" || s === "ongoing") {
+      return {
+        badge: "bg-yellow-500/20 text-yellow-700 dark:bg-yellow-500/30 dark:text-yellow-300",
+        dot: "bg-yellow-400",
+        ping: "bg-yellow-400",
+      };
+    }
+
+    // fallback (neutral)
+    return {
+      badge: "bg-black/40 text-white dark:bg-white/10 dark:text-slate-300",
+      dot: "bg-slate-400",
+      ping: "bg-slate-400",
+    };
+  };
+
+  const statusStyles = project.status ? getStatusStyles(project.status) : null;
 
   return (
-    <article className="group flex h-full min-w-0 flex-col rounded-xl border border-slate-300 bg-white p-4 shadow-lg shadow-slate-300/40 transition hover:border-cyan-600/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-none dark:hover:border-cyan-300/40 dark:hover:bg-slate-900/80 sm:rounded-2xl sm:p-5">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <p className="font-mono text-xs font-semibold text-slate-500">
-          {String(index + 1).padStart(2, "0")}
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:shadow-lg dark:border-white/10 dark:bg-slate-900 dark:hover:shadow-xl">
+      <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+        {image ? (
+          <img
+            src={image}
+            alt={`${project.title} preview`}
+            className="block aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex aspect-[16/10] w-full items-center justify-center bg-slate-200 dark:bg-slate-700">
+            <span className="text-sm text-slate-400">No preview</span>
+          </div>
+        )}
+      </div>
+
+      {/* ===== CONTENT ===== */}
+      <div className="flex flex-1 flex-col p-6">
+        <div className="mb-4 flex items-start justify-between">
+          <h3 className="text-xl font-bold leading-tight text-slate-950 dark:text-white">
+            {project.title}
+          </h3>
+
+          {project.status && statusStyles && (
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide backdrop-blur-md ${statusStyles.badge}`}
+            >
+              <span className="relative flex h-1.5 w-1.5">
+                <span
+                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${statusStyles.ping}`}
+                />
+                <span
+                  className={`relative inline-flex h-1.5 w-1.5 rounded-full ${statusStyles.dot}`}
+                />
+              </span>
+              {project.status}
+            </span>
+          )}
+        </div>
+
+        <p className="line-clamp-2 mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+          {description}
         </p>
-        {project.category && (
-          <span className="max-w-full truncate rounded-full border border-cyan-700/20 px-2.5 py-0.5 text-[0.65rem] font-semibold text-cyan-700 dark:border-cyan-300/20 dark:text-cyan-300">
-            {project.category}
-          </span>
-        )}
-      </div>
 
-      <h3 className="mt-3 text-lg font-bold text-slate-950 dark:text-white sm:mt-6 sm:text-xl">
-        {project.title}
-      </h3>
-      <p className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-400 sm:mt-3">
-        {project.description}
-      </p>
-
-      {features.length > 0 && (
-        <ul className="mt-3 space-y-1.5 text-sm leading-5 text-slate-700 dark:text-slate-300 sm:mt-4">
-          {features.slice(0, 3).map((feature) => (
-            <li key={feature} className="flex gap-2">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-600 dark:bg-cyan-300" />
-              <span className="min-w-0 break-words">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="mt-4 flex flex-wrap gap-2 sm:mt-8">
-        {techStack.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-full border border-slate-300 bg-slate-100 px-2.5 py-0.5 text-[0.7rem] font-medium text-slate-700 dark:border-white/10 dark:bg-transparent dark:text-slate-300"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      {/* Action buttons: wrap instead of squishing/overflowing on narrow screens */}
-      <div className="mt-5 mb-3 flex w-full flex-wrap gap-2 sm:mt-10 sm:mb-7">
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-w-[110px] flex-1 items-center justify-center gap-2 rounded-full border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800 transition hover:transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:border-cyan-600 hover:text-cyan-700 dark:border-white/10 dark:text-cyan-200 dark:hover:border-cyan-300 dark:hover:text-cyan-300"
-          >
-            <FaGithub aria-hidden="true" />
-            GitHub
-          </a>
+        {techStack.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 dark:bg-white/10 dark:text-slate-300"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         )}
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-w-[110px] flex-1 items-center justify-center gap-2 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
-          >
-            <HiOutlineExternalLink aria-hidden="true" />
-            Demo
-          </a>
-        )}
-        {project.docs && (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("We are working on it. Please keep touch with us.");
-            }}
-            className="inline-flex min-w-[110px] flex-1 cursor-pointer items-center justify-center gap-2 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-700 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
-          >
-            <HiOutlineExternalLink aria-hidden="true" />
-            Documentation
-          </button>
-        )}
+
+        <div className="mt-6 flex flex-wrap gap-2.5 border-t border-slate-100 pt-5 dark:border-white/10">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-300 hover:scale-105 hover:border-slate-400 hover:bg-slate-100 hover:shadow-md dark:border-white/20 dark:text-slate-300 dark:hover:border-white/40 dark:hover:bg-white/10"
+            >
+              <FaGithub className="text-base" />
+              <span>Code</span>
+            </a>
+          )}
+
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-slate-950 to-slate-950 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:scale-105 hover:bg-gradient-to-l hover:from-slate-750 hover:to-slate-550 hover:shadow-md dark:from-slate-550 dark:to-cyan-300 dark:text-slate-900"
+            >
+              <HiOutlineExternalLink className="text-base" />
+              <span>Live Demo</span>
+            </a>
+          )}
+
+          {project.docs && (
+            <a
+              href={project.docs}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-all duration-300 hover:scale-105 hover:border-slate-400 hover:bg-slate-100 hover:shadow-md dark:border-white/20 dark:text-slate-300 dark:hover:border-white/40 dark:hover:bg-white/10"
+            >
+              <HiOutlineExternalLink className="text-base" />
+              <span>Docs</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
