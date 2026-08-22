@@ -122,15 +122,13 @@ function StackPanel({
 }) {
   const isCyan = accent === "cyan";
 
-  const accentText = isCyan
-    ? "text-cyan-600 dark:text-cyan-400"
-    : "text-indigo-600 dark:text-indigo-400";
+  const accentText = isCyan ? "text-cyan-600" : "text-indigo-600";
 
   const accentDot = isCyan ? "bg-cyan-500" : "bg-indigo-500";
 
   const accentHover = isCyan
-    ? "group-hover:border-cyan-400/40 group-hover:bg-cyan-50/40 dark:group-hover:border-cyan-400/30 dark:group-hover:bg-cyan-950/20"
-    : "group-hover:border-indigo-400/40 group-hover:bg-indigo-50/40 dark:group-hover:border-indigo-400/30 dark:group-hover:bg-indigo-950/20";
+    ? "group-hover:border-cyan-400/40 group-hover:bg-cyan-50/40"
+    : "group-hover:border-indigo-400/40 group-hover:bg-indigo-50/40";
 
   return (
     <motion.div variants={panelMotion} className="relative">
@@ -144,11 +142,11 @@ function StackPanel({
           {mirror && <span className={`h-1.5 w-1.5 rounded-full ${accentDot}`} />}
         </div>
 
-        <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
+        <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
           {title}
         </h3>
 
-        <p className={`mt-3 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-400 ${mirror ? "text-right" : ""}`}>
+        <p className={`mt-3 max-w-xl text-sm leading-6 text-slate-600 ${mirror ? "text-right" : ""}`}>
           {text}
         </p>
       </div>
@@ -175,7 +173,7 @@ function StackPanel({
           {groups.map((group) => (
             <motion.div key={group.title} variants={groupMotion} className="relative">
               {/* Spine node */}
-              <span className={`absolute top-1.5 h-2.5 w-2.5 rounded-full ${accentDot} ring-4 ring-white dark:ring-slate-950 ${mirror ? "-right-7 translate-x-1/2 sm:-right-10" : "-left-7 -translate-x-1/2 sm:-left-10"}`} />
+              <span className={`absolute top-1.5 h-2.5 w-2.5 rounded-full ${accentDot} ring-4 ring-white ${mirror ? "-right-7 translate-x-1/2 sm:-right-10" : "-left-7 -translate-x-1/2 sm:-left-10"}`} />
 
               <h4 className={`text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400 ${mirror ? "text-right" : ""}`}>
                 {group.title}
@@ -187,7 +185,7 @@ function StackPanel({
                   return (
                     <div
                       key={skill.name}
-                      className={`group/skill flex items-center gap-2 rounded-lg border border-slate-200/70 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 ${accentHover}`}
+                      className={`group/skill flex items-center gap-2 rounded-lg border border-slate-200/70 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-sm ${accentHover}`}
                     >
                       <Icon className={`text-base ${skill.color} transition-transform duration-200 group-hover/skill:scale-110`} />
                       <span>{skill.name}</span>
@@ -207,7 +205,7 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="scroll-mt-24 px-4 py-20 text-slate-950 transition-colors duration-300 dark:text-white sm:px-6 sm:py-28"
+      className="scroll-mt-24 bg-[#FFFFFF] px-4 py-20 text-slate-950 sm:px-6 sm:py-28"
     >
       <div className="mx-auto max-w-5xl">
         {/* ================= HEADER ================= */}
@@ -223,20 +221,20 @@ function Skills() {
         >
           <div className="mb-5 flex items-center gap-3">
             <span className="h-px w-8 bg-cyan-500" />
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600">
               02 / Skills
             </p>
           </div>
 
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Tools I use.
-            <span className="text-slate-400 dark:text-slate-600">
+            <span className="text-slate-400">
               {" "}
               Things I'm learning.
             </span>
           </h2>
 
-          <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base">
+          <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
             A practical collection of technologies I use to build projects,
             along with the tools and concepts I'm currently exploring.
           </p>

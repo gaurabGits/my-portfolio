@@ -61,7 +61,7 @@ export const projects = [
     id: 3,
     title: "Meetra",
     image:
-      "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=1200&q=80",
+      "../../../../meetra.png",
     description:
       "A real-time video conferencing application enabling multi-user audio and video communication with low-latency streaming.",
     category: "Team Project",

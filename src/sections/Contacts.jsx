@@ -129,7 +129,7 @@ function Contacts() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 px-4 py-20 text-slate-950 transition-colors duration-300 sm:px-6 sm:py-28 sm:scroll-mt-28"
+      className="scroll-mt-24 bg-slate-50 px-4 py-20 text-slate-950 transition-colors duration-300 sm:px-6 sm:py-28 sm:scroll-mt-28"
     >
       <div className="mx-auto max-w-6xl">
         {/* ================= HEADER ================= */}
@@ -306,10 +306,6 @@ function Contacts() {
             </form>
           </div>
         </div>
-
-        <p className="mt-6 text-center text-xs text-slate-400">
-          Usually replies within 24 hours.
-        </p>
       </div>
     </section>
   );

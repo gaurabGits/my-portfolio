@@ -44,23 +44,18 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 px-4 py-20 text-slate-950 transition-colors duration-300 sm:px-6 sm:py-28 sm:scroll-mt-28 bg-slate-50/60"
+      className="scroll-mt-24 inset-0 px-4 py-20 text-slate-950 transition-colors duration-300 sm:px-6 sm:py-28 sm:scroll-mt-28"
     >
       <div className="mx-auto max-w-5xl">
-        {/* ================= HEADER ================= */}
         <div className="mb-12 max-w-3xl">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-8 bg-cyan-500" />
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600">
-              03 / Projects
-            </p>
-          </div>
+          <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600">
+            <span className="text-slate-400">&gt;</span> ~/projects
+          </p>
 
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                Things{" "}
-                <span className="text-slate-500">I've built.</span>
+                Things <span className="text-slate-500">I've built.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
                 A selection of projects where I turn ideas into working
@@ -81,7 +76,7 @@ function Projects() {
             aria-label="Previous project"
             className={`hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition-all duration-300 sm:flex ${
               canPrev
-                ? "hover:border-cyan-400 hover:text-cyan-600"
+                ? "hover:border-cyan-400 hover:text-cyan-600 hover:shadow-md hover:shadow-cyan-500/10"
                 : "cursor-not-allowed opacity-25"
             }`}
           >
@@ -120,7 +115,7 @@ function Projects() {
             aria-label="Next project"
             className={`hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm transition-all duration-300 sm:flex ${
               canNext
-                ? "hover:border-cyan-400 hover:text-cyan-600"
+                ? "hover:border-cyan-400 hover:text-cyan-600 hover:shadow-md hover:shadow-cyan-500/10"
                 : "cursor-not-allowed opacity-25"
             }`}
           >
@@ -141,7 +136,7 @@ function Projects() {
           </button>
 
           <span className="font-mono text-xs text-slate-400">
-            <span className="text-slate-950">
+            <span className="text-cyan-600">
               {String(index + 1).padStart(2, "0")}
             </span>
             {" / "}
@@ -172,7 +167,7 @@ function Projects() {
               <span
                 className={`h-1 rounded-full transition-all duration-300 ${
                   i === index
-                    ? "w-7 bg-slate-950"
+                    ? "w-7 bg-cyan-500"
                     : "w-2 bg-slate-300 group-hover:bg-slate-400"
                 }`}
               />
